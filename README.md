@@ -7,7 +7,7 @@
 ## The getResult() Method (for users)
 This is a public static method which returns the result of a given expression as a double. The parameter exp is a string.
 ### Usage
-* String result = Evaluator.evaluate(exp)
+* Double result = Evaluator.getResult(exp);
 <br>
 
 ## The evaluate() Method (required for getResult())
