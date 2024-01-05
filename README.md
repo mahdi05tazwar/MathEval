@@ -1,4 +1,4 @@
-# Java Mathematical Expression Evaluator
+# Java Mathematical Expression Evaluator (MathEval)
 ### Evaluates mathematical expressions containing brackets, division, multiplication, addition and subtraction stored in strings
 ### Algorithm written by Md Mahdi Tajwar Raeed (January 2024)
 #### mahdi05tazwar@gmail.com
