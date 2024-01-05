@@ -1,5 +1,3 @@
-package com.mahdicodes.matheval;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 
