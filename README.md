@@ -1,6 +1,6 @@
 # Java Mathematical Expression Evaluator (MathEval)
-### Evaluates mathematical expressions containing brackets, division, multiplication, addition and subtraction stored in strings
-### Algorithm written by Md Mahdi Tajwar Raeed (January 2024)
+### An attempt to evaluate mathematical expressions containing brackets, division, multiplication, addition and subtraction stored in strings, without the use of tokenisation.
+### Wrote it as a fun experiment (January 2024)
 #### mahdi05tazwar@gmail.com
 <br>
 
@@ -31,14 +31,15 @@ The return type is LinkedList<Character>. The parameter is a Linked List that co
   * The index of the first division operator is stored.
   * The list is read backwards using a for-loop from the index of the division operator. When another operator is found, it means the character right after that operator is the first character of the first number. E.g. 30+20/10/5; the "/" in "20/10" is the targeted division operator. The "+" is the first operator before it. The number after the "+" is the first character of the first number (i.e. "2" of "20"). The index of this character is stored. The for-loop ends.
   * The list is read forwards using a for-loop from the index of the division operator.  When another operator is found, it means the character right before that operator is the last character of the second number. E.g. 30+20/10/5; the "/" in "20/10" is the targeted division operator. The second "/" is the first operator after it. The number before the "/" is the last character of the first number (i.e. "0" of "10"). The index of this character is stored. The for-loop ends.
-  * HOWEVER, in some cases, a "-" isn't just an operator; it rather means that a number is negative. If there is a "-" right before the first character of the first number, it means the first number is negative (and the index of the "-" is the index of the first character). If there is a "-" right after the target division operator, it means the second number is negative and that the "-" isn't just an operator, and the for-loop doesn't stop; it checks for the next one.
+  * HOWEVER, in some cases, a "-" isn't just an operator; it rather means that a number is negative. If there is a "-" right before the first character of the first number, it means the first number is negative (and the index of the "-" is included as the index of the first character). If there is a "-" right after the target division operator, it means the second number is negative too.
   * The two numbers are extracted (by the index values) and the first one is divided by the second.
   * The result of this division is returned as a list of characters.
 * This process is repeated for multiplication, then addition.
 * The process for subtraction is different (i.e. the while-loop works differently). The process of each iteration for subtraction is:
   * Only minuses remain in the list now. So, the first character of the first number is obviously at index 0 (e.g. -2 - -3 - 9).
-  * The list is read forwards using a for-loop which starts from index 1 (index 0 might be another minus which should be included for negative numbers). When another "-" is located, it is stored as the target subtraction operator.
+  * To search for the operator, list is read forwards using a for-loop which starts from index 1 (index 0 might be another minus which should not be counted as the target operator, and rather implies that the first number is negative). When another "-" is located, it is stored as the target subtraction operator.
   * The list is read forwards again, using a for-loop which starts from the index of the subtraction operator, and when another "-" is found, it means the character right before that operator is the last character of the second number. The for-loop stops.
-  * HOWEVER, like before, in some cases, a "-" isn't just an operator; it rather means that a number is negative. If there is a "-" right after the target division operator, it means the second number is negative and that the "-" isn't just an operator, and the for-loop doesn't stop; it checks for the next one.
+  * HOWEVER, like before, in some cases, a "-" isn't just an operator; it rather means that a number is negative. If there is a "-" right after the target subtraction operator, it means the second number is negative and that the "-" isn't just an operator, and the for-loop doesn't stop; it checks for the next one.
 * NOTE: Sometimes, there may be only one operator in an expression, and there is no other operator. For this reason, the default index of the first character of the first number is 0 (first element), and the default index of the last character of the last number is that of the last element.
 * Once the list no longer contains any operators (except the "-" of negative numbers at the start), the list is returned.
+
